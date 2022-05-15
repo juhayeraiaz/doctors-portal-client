@@ -14,7 +14,7 @@ const Appointment = () => {
                     <div>
                         <DayPicker mode='single'
                             selected={date}
-                            onSelect={setDate}
+                            onDayClick={setDate}
                             styles={{
                                 head: { color: 'red' }
                             }} />
