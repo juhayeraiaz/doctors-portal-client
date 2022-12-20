@@ -13,7 +13,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, price, patient, patientName } = appointment;
 
     useEffect(() => {
-        fetch('https://doctors-cl.herokuapp.com/create-payment-intent', {
+        fetch('https://doctors-portal-vj0f.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -47,6 +47,7 @@ const CheckoutForm = ({ appointment }) => {
             type: 'card',
             card
         });
+        console.log(paymentMethod)
 
         setCardError(error?.message || '')
         setSuccess('');
@@ -80,7 +81,7 @@ const CheckoutForm = ({ appointment }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://doctors-cl.herokuapp.com/booking/${_id}`, {
+            fetch(`https://doctors-portal-vj0f.onrender.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -95,6 +96,7 @@ const CheckoutForm = ({ appointment }) => {
 
         }
     }
+    console.log(processing);
     return (
         <>
             <form onSubmit={handleSubmit}>

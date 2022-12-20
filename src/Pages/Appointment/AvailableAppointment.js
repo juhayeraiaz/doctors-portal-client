@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import BookingModal from './BookingModal';
@@ -10,7 +10,7 @@ const AvailableAppointment = ({ date }) => {
 
     const formattedDate = format(date, 'PP');
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-        fetch(`https://doctors-cl.herokuapp.com/available?date=${formattedDate}`)
+        fetch(`https://doctors-portal-vj0f.onrender.com/available?date=${formattedDate}`)
             .then(res => res.json())
     )
 

@@ -12,7 +12,7 @@ const MyAppointments = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://doctors-cl.herokuapp.com/booking?patient=${user.email}`, {
+            fetch(`https://doctors-portal-vj0f.onrender.com/booking?patient=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyAppointments = () => {
                     setAppointments(data);
                 });
         }
-    }, [user])
+    },)
     return (
         <div>
             <h3 className='my-4'>My Appointments: {appointments.length}</h3>

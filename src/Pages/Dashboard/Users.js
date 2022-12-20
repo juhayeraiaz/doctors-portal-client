@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://doctors-cl.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://doctors-portal-vj0f.onrender.com/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,8 +16,8 @@ const Users = () => {
     return (
         <div>
             <h2 className="text-2xl">All Users: {users.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="text-center table w-full">
+            <div className="overflow-x-auto">
+                <table className="text-center table w-full">
                     <thead>
                         <tr>
                             <th>SL</th>

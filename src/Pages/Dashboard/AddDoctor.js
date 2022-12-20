@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('https://doctors-cl.herokuapp.com/service').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://doctors-portal-vj0f.onrender.com/service').then(res => res.json()))
 
     const imageStorageKey = '4295ac4d47b569312bea67b440cdbdbb';
 
@@ -39,7 +39,7 @@ const AddDoctor = () => {
                         img: img
                     }
                     // send to your database 
-                    fetch('https://doctors-cl.herokuapp.com/doctor', {
+                    fetch('https://doctors-portal-vj0f.onrender.com/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -121,7 +121,7 @@ const AddDoctor = () => {
                     <label className="label">
                         <span className="label-text">Specialty</span>
                     </label>
-                    <select {...register('specialty')} class="select input-bordered w-full max-w-xs">
+                    <select {...register('specialty')} className="select input-bordered w-full max-w-xs">
                         {
                             services.map(service => <option
                                 key={service._id}
